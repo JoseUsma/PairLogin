@@ -3,7 +3,7 @@
     <?php $this->renderFeedbackMessages(); ?>
 
 	<div class="page-header">
-        <h1>Pair, business cards at all times and anywhere.</h1>
+        <h1>Pair, business cards at all times.</h1>
     </div>
     
 	<div class="jumbotron">
