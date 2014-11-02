@@ -23,7 +23,7 @@ class Theme extends Controller
      */
     function index()
     {
-        $this->view->bootrender('theme/index');
+        $this->view->render('theme/index');
 		//$this->view->render('theme/index');
     }
 }

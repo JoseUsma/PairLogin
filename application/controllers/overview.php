@@ -22,7 +22,7 @@ class Overview extends Controller
     {
         $overview_model = $this->loadModel('Overview');
         $this->view->users = $overview_model->getAllUsersProfiles();
-        $this->view->bootrender('overview/index');
+        $this->view->render('overview/index');
     }
 
     /**
@@ -35,7 +35,7 @@ class Overview extends Controller
         if (isset($user_id)) {
             $overview_model = $this->loadModel('Overview');
             $this->view->user = $overview_model->getUserProfile($user_id);
-            $this->view->bootrender('overview/showuserprofile');
+            $this->view->render('overview/showuserprofile');
         } else {
             header('location: ' . URL);
         }

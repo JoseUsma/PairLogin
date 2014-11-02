@@ -20,6 +20,6 @@ class Index extends Controller
      */
     function index()
     {
-            $this->view->bootrender('index/index');
+            $this->view->render('index/index');
     }
 }

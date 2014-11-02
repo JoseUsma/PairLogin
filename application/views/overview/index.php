@@ -10,7 +10,7 @@
         You could use the underlaying code to build things that use profile information
         of one or multiple/all users.
     </p>
-
+<br>
     <p>
         <div class="col-md-6">
         <table class="table table-striped">

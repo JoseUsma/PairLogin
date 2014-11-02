@@ -1,4 +1,4 @@
-<div class="content">
+<div class="container">
     <h1>Change account type</h1>
     <p>
         This page is a basic implementation of the upgrade-process.

@@ -20,9 +20,9 @@ class View
         if ($render_without_header_and_footer == true) {
             require VIEWS_PATH . $filename . '.php';
         } else {
-            require VIEWS_PATH . '_templates/header.php';
+            require VIEWS_PATH . '_templates/bootheader.php';
             require VIEWS_PATH . $filename . '.php';
-            require VIEWS_PATH . '_templates/footer.php';
+            require VIEWS_PATH . '_templates/bootfooter.php';
         }
     }
 
