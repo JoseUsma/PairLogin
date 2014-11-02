@@ -20,7 +20,7 @@ ini_set("display_errors", 1);
  * if you are using a (different) port, then put this in here, like http://mydomain:8888/subfolder/
  * Note: The trailing slash is important!
  */
-define('URL', 'http://localhost/UsmaGallery/PairLogin/');
+define('URL', 'http://www.usmagallery.com/PairLogin/');
 
 /**
  * Configuration for: Database
@@ -96,10 +96,10 @@ define('COOKIE_DOMAIN', '.localhost');
  */
 
 define('DB_TYPE', 'mysql');
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'php_mvc');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'pair');
+define('DB_USER', 'PairLogin');
+define('DB_PASS', 'P41rL0g1n');
 
 /**
  * Configuration for: Hashing strength
@@ -192,14 +192,14 @@ define("EMAIL_SMTP_ENCRYPTION", 'ssl');
  */
 define("EMAIL_PASSWORD_RESET_URL", URL . "login/verifypasswordreset");
 define("EMAIL_PASSWORD_RESET_FROM_EMAIL", "no-reply@example.com");
-define("EMAIL_PASSWORD_RESET_FROM_NAME", "My Project");
-define("EMAIL_PASSWORD_RESET_SUBJECT", "Password reset for PROJECT XY");
+define("EMAIL_PASSWORD_RESET_FROM_NAME", "Pair Project");
+define("EMAIL_PASSWORD_RESET_SUBJECT", "Password reset for PAIR NETWORK");
 define("EMAIL_PASSWORD_RESET_CONTENT", "Please click on this link to reset your password: ");
 
 define("EMAIL_VERIFICATION_URL", URL . "login/verify");
 define("EMAIL_VERIFICATION_FROM_EMAIL", "no-reply@example.com");
-define("EMAIL_VERIFICATION_FROM_NAME", "My Project");
-define("EMAIL_VERIFICATION_SUBJECT", "Account activation for PROJECT XY");
+define("EMAIL_VERIFICATION_FROM_NAME", "Pair Project");
+define("EMAIL_VERIFICATION_SUBJECT", "Account activation for PAIR NETWORK");
 define("EMAIL_VERIFICATION_CONTENT", "Please click on this link to activate your account: ");
 
 /**
