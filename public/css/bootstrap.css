@@ -2083,6 +2083,9 @@ th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
 }
+.table > tboyd > tr > th {
+  vertical-align: middle;
+}
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
 .table > thead:first-child > tr:first-child > th,

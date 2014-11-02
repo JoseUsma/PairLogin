@@ -71,7 +71,7 @@ p {
 
 .login_header {
     /*background-color: #42444f;*/
-    margin-top:5px;
+    margin-top:0px;
     /*margin: 0;*/
     color: #acadb1;
     font-size: 14px;
@@ -291,6 +291,7 @@ ul#menu li:hover ul.sub-menu {
 }
 
 .login_header .avatar {
+    margin-top:2px;
     float: left;
     width: 44px;
     height: 44px;
@@ -468,7 +469,7 @@ table.overview-table td.avatar {
 
 /* quick fix */
 .avatar img {
-    width: 44px;
+	width: 44px;
     height: 44px;
 	-moz-border-radius: 22px;
 	-webkit-border-radius: 22px;
