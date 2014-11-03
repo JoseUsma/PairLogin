@@ -19,7 +19,6 @@
                 <th>&nbsp;</th>
                 <th>Avatar</th>
                 <th>Username</th>
-                <th>Email</th>
                 <th>Status</th>
                 <th>Options</th>
               </tr>
@@ -44,8 +43,7 @@
 
             echo '</td>';
             echo '<td>'.$user->user_name.'</td>';
-            echo '<td>'.$user->user_email.'</td>';
-            echo '<td>Active: '.$user->user_active.'</td>';
+            echo '<td>'.($user->user_active==1?'Active':'Disabled').'</td>';
             echo '<td><a href="'.URL.'overview/showuserprofile/'.$user->user_id.'">Profile details...</a></td>';
             echo "</tr>";
         }

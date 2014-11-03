@@ -14,7 +14,6 @@
                 <th>&nbsp;</th>
                 <th>Picture</th>
                 <th>Username</th>
-                <th>Email</th>
                 <th>Status</th>
                 <th>Options</th>
               </tr>
@@ -31,7 +30,6 @@
                 echo '<td>'.$this->user->user_id.'</td>';
                 echo '<td class="avatar"><img src="'.$this->user->user_avatar_link.'" /></td>';
                 echo '<td>'.$this->user->user_name.'</td>';
-                echo '<td>'.$this->user->user_email.'</td>';
                 echo '<td>'.($this->user->user_active==1?'Active':'Disabled').'</td>';
                 echo '<td><a href="'.URL.'message/sendmessage/'.$this->user->user_id.'">Send Message</a></td>';
 				echo "</tr>";

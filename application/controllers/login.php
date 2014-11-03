@@ -119,7 +119,7 @@ class Login extends Controller
     {
         // Auth::handleLogin() makes sure that only logged in users can use this action/method and see that page
         Auth::handleLogin();
-        $this->view->render('login/viewProfile');
+        $this->view->render('login/viewprofile');
     }
 	
 	/**
@@ -144,7 +144,7 @@ class Login extends Controller
         Auth::handleLogin();
         $login_model = $this->loadModel('Login');
         $login_model->editUserName();
-        $this->view->render('login/viewProfile');
+        $this->view->render('login/viewprofile');
     }
 
     /**
@@ -170,7 +170,7 @@ class Login extends Controller
         $login_model = $this->loadModel('Login');
         $edit_successful = $login_model->editUserEmail();
          if ($edit_successful) 
-			$this->view->render('login/viewProfile');
+			$this->view->render('login/viewprofile');
 		else
 			$this->view->render('login/editUserEmail');
     }
@@ -200,7 +200,7 @@ class Login extends Controller
         $login_model = $this->loadModel('Login');
         $edit_successful = $login_model->createAvatar();        
 		 if ($edit_successful) 
-			$this->view->render('login/viewProfile');
+			$this->view->render('login/viewprofile');
 		else
 			$this->view->render('login/uploadAvatar');
     }
@@ -317,7 +317,7 @@ class Login extends Controller
 		// check registration status
         if ($password_reset_successful) {
             // if YES, then move user to login/index (this is a browser-redirection, not a rendered view)
-            header('location: ' . URL . 'login/viewProfile');
+            header('location: ' . URL . 'login/viewprofile');
         } else {
             // if NO, then move user to login/register (this is a browser-redirection, not a rendered view)
             header('location: ' . URL . 'login/requestpasswordreset');
