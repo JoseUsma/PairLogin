@@ -3,14 +3,16 @@
     <?php $this->renderFeedbackMessages(); ?>
 
 	<div class="page-header">
-        <h1>Pair, business cards at all times.</h1>
+        <h1>Pair, business cards at all times and anywhere.</h1>
     </div>
     
 	<div class="jumbotron">
         <p class="lead">Get your <b>business cards</b> for <b>free</b></p>
 	
 	<?php if (Session::get('user_logged_in') == false):?>
-      <p class="lead"><a href="<?php echo URL; ?>login/register" class="btn btn-primary btn-lg" role="button">Sign in</a> to our <b>Pair network</b>
+      <p class="lead"><a href="<?php echo URL; ?>login/index" class="btn btn-primary btn-lg" role="button">Login</a> or
+	  <a href="<?php echo URL; ?>login/register" class="btn btn-primary btn-lg" role="button">Register</a> 
+	  to our <b>Pair network</b>
 	  </p>
 	  <p>Don't miss this unique opportunity! <br>
 	   Organization preserves the right of admission.	

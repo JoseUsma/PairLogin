@@ -48,7 +48,7 @@
 			<?php if (Session::get('user_logged_in') == true): ?>
 				<div class="header_right_box">
 					<div class="namebox">
-						Hello <?php echo Session::get('user_name'); ?> !
+						<?php echo Session::get('user_name'); ?>
 					</div>
 					<div class="avatar">
 						<?php if (USE_GRAVATAR) { ?>
@@ -69,7 +69,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Pair</a>
+          <a class="navbar-brand" href="<?php echo URL; ?>index/index">Pair</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">

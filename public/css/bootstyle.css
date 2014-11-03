@@ -286,7 +286,7 @@ ul#menu li:hover ul.sub-menu {
     font-weight: bold;
     height: 100%;
     line-height: 44px;
-    padding: 0 30px;
+    padding: 0 10px;
     text-decoration: none;
 }
 
