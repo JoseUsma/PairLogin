@@ -6,7 +6,7 @@
 		</div>
 	  <!-- echo out the content of the SESSION via KINT, a Composer-loaded much better version of var_dump -->
         <!-- KINT can be used with the simple function d() -->
-        <?php // d($_SESSION); ?>
+        <?php //d($this->account_type); ?>
     </div>
 	 <script src="<?php echo URL; ?>public/js/jquery.min.js"></script>
     <script src="<?php echo URL; ?>public/js/bootstrap.min.js"></script>

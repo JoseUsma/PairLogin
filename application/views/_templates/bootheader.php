@@ -97,22 +97,13 @@
             <?php endif; ?>
 
             <?php if (Session::get('user_logged_in') == true):?>
-                <li <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
+                <li  <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
                     <a href="<?php echo URL; ?>login/showprofile" class="dropdown-toggle" data-toggle="dropdown">My Account</a>
                     <ul class="dropdown-menu" role="menu">
                         <li <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
-                            <a href="<?php echo URL; ?>login/changeaccounttype">Change account type</a>
+                            <a href="<?php echo URL; ?>login/viewprofile">Profile</a>
                         </li>
-                        <li <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
-                            <a href="<?php echo URL; ?>login/uploadavatar">Upload an avatar</a>
-                        </li>
-                        <li <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
-                            <a href="<?php echo URL; ?>login/editusername">Edit my username</a>
-                        </li>
-                        <li <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
-                            <a href="<?php echo URL; ?>login/edituseremail">Edit my email</a>
-                        </li>
-                        <li <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
+                        <li>
                             <a href="<?php echo URL; ?>login/logout">Logout</a>
                         </li>
                     </ul>

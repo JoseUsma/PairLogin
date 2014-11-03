@@ -1,14 +1,45 @@
 <div class="container">
-    <h1>Upload an avatar</h1>
+    <h1>Upload Picture</h1>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
     <form action="<?php echo URL; ?>login/uploadavatar_action" method="post" enctype="multipart/form-data">
-        <label for="avatar_file">Select an avatar image from your hard-disk (will be scaled to 44x44 px):</label>
-        <input type="file" name="avatar_file" required />
-        <!-- max size 5 MB (as many people directly upload high res pictures from their digital cameras) -->
+        <div class="col-md-6">
+        <table class="table">
+        <tbody>
+            <tr>
+                <th>Username:</th>
+                <td><?php echo Session::get('user_name'); ?></td>
+			</tr>
+			<tr>
+                <th>Picture:</th>
+                <td><?php // if usage of gravatar is activated show gravatar image, else show local avatar ?>
+				<?php if (USE_GRAVATAR) { ?>
+					<div class="avatar">
+						<img src='<?php echo Session::get('user_gravatar_image_url'); ?>' />
+					</div>
+				<?php } else { ?>
+					<div class="avatar">
+						<img src='<?php echo Session::get('user_avatar_file'); ?>' />
+					</div>
+				<?php } ?>
+				</td>
+			</tr>
+			<tr>
+                <th>New Picture:</th>
+                <td><input type="file" name="avatar_file" required class="btn btn-lg btn-primary" />
+				<!-- max size 5 MB (as many people directly upload high res pictures from their digital cameras) -->
+					</td>
+			</tr>
+			<tr>
+                <td><input type="button" value="Cancel" class="btn btn-lg btn-default" onclick="window.location.href='<?php echo URL; ?>login/viewprofile'"/></td>
+				<td>
         <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
-        <input name="submit" type="submit" value="Upload image" />
+        <input class="btn btn-lg btn-primary" name="submit" type="submit" value="Upload image" /></td>
+			</tr>
+		</tbody>
+		</table>
+		</div>
     </form>
 </div>

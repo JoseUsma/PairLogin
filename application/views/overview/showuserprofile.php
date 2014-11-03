@@ -12,7 +12,7 @@
         <thead>
               <tr>
                 <th>&nbsp;</th>
-                <th>Avatar</th>
+                <th>Picture</th>
                 <th>Username</th>
                 <th>Email</th>
                 <th>Status</th>
@@ -32,7 +32,7 @@
                 echo '<td class="avatar"><img src="'.$this->user->user_avatar_link.'" /></td>';
                 echo '<td>'.$this->user->user_name.'</td>';
                 echo '<td>'.$this->user->user_email.'</td>';
-                echo '<td>Active: '.$this->user->user_active.'</td>';
+                echo '<td>'.($this->user->user_active==1?'Active':'Disabled').'</td>';
                 echo '<td><a href="'.URL.'message/sendmessage/'.$this->user->user_id.'">Send Message</a></td>';
 				echo "</tr>";
             ?>

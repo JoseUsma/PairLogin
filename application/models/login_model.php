@@ -410,7 +410,7 @@ class LoginModel
         // call the setGravatarImageUrl() method which writes gravatar URLs into the session
         $this->setGravatarImageUrl($user_email, AVATAR_SIZE);
         $_SESSION["feedback_positive"][] = FEEDBACK_EMAIL_CHANGE_SUCCESSFUL;
-        return false;
+        return true;
     }
 
     /**
@@ -819,8 +819,8 @@ class LoginModel
      */
     public function requestPasswordReset()
     {
-        if (!isset($_POST['user_name']) OR empty($_POST['user_name'])) {
-            $_SESSION["feedback_negative"][] = FEEDBACK_USERNAME_FIELD_EMPTY;
+        if (!isset($_POST['user_email']) OR empty($_POST['user_email'])) {
+            $_SESSION["feedback_negative"][] = FEEDBACK_EMAIL_FIELD_EMPTY;
             return false;
         }
 
@@ -829,15 +829,18 @@ class LoginModel
         // generate random hash for email password reset verification (40 char string)
         $user_password_reset_hash = sha1(uniqid(mt_rand(), true));
         // clean user input
-        $user_name = strip_tags($_POST['user_name']);
+        $user_name = Session::get('user_name');
+		$user_email = strip_tags($_POST['user_email']);
 
         // check if that username exists
         $query = $this->db->prepare("SELECT user_id, user_email FROM users
-                                     WHERE user_name = :user_name AND user_provider_type = :provider_type");
-        $query->execute(array(':user_name' => $user_name, ':provider_type' => 'DEFAULT'));
+                                     WHERE user_name = :user_name 
+									 AND user_email = :user_email 
+									 AND user_provider_type = :provider_type");
+        $query->execute(array(':user_name' => $user_name, ':user_email' => $user_email,':provider_type' => 'DEFAULT'));
         $count = $query->rowCount();
         if ($count != 1) {
-            $_SESSION["feedback_negative"][] = FEEDBACK_USER_DOES_NOT_EXIST;
+            $_SESSION["feedback_negative"][] = FEEDBACK_EMAIL_NOT_MATCH;
             return false;
         }
 
@@ -1377,5 +1380,18 @@ class LoginModel
 
     	return $new_username;
     }
-
+ 
+	/**
+     * Edit the user's email, provided in the editing form
+     * @return bool success status
+     */
+    public function getUserAccountType($AccountType)
+    {
+		$AccountTypeString = 'Guess';
+		if ($AccountType == 1)
+			$AccountTypeString = 'User';
+		if ($AccountType == 2)
+			$AccountTypeString = 'Manager';
+		return $AccountTypeString;
+	}
 }

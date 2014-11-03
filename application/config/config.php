@@ -202,6 +202,7 @@ define("EMAIL_VERIFICATION_FROM_NAME", "Pair Project");
 define("EMAIL_VERIFICATION_SUBJECT", "Account activation for PAIR NETWORK");
 define("EMAIL_VERIFICATION_CONTENT", "Please click on this link to activate your account: ");
 
+
 /**
  * Configuration for: Error messages and notices
  *
@@ -216,8 +217,8 @@ define("FEEDBACK_USER_DOES_NOT_EXIST", "This user does not exist.");
 define("FEEDBACK_LOGIN_FAILED", "Login failed.");
 define("FEEDBACK_USERNAME_FIELD_EMPTY", "Username field was empty.");
 define("FEEDBACK_PASSWORD_FIELD_EMPTY", "Password field was empty.");
-define("FEEDBACK_EMAIL_FIELD_EMPTY", "Email and passwords fields were empty.");
-define("FEEDBACK_EMAIL_AND_PASSWORD_FIELDS_EMPTY", "Email field was empty.");
+define("FEEDBACK_EMAIL_FIELD_EMPTY", "Email field was empty.");
+define("FEEDBACK_EMAIL_AND_PASSWORD_FIELDS_EMPTY", "Email and passwords fields were empty.");
 define("FEEDBACK_USERNAME_SAME_AS_OLD_ONE", "Sorry, that username is the same as your current one. Please choose another one.");
 define("FEEDBACK_USERNAME_ALREADY_TAKEN", "Sorry, that username is already taken. Please choose another one.");
 define("FEEDBACK_USER_EMAIL_ALREADY_TAKEN", "Sorry, that email is already in use. Please choose another one.");
@@ -227,6 +228,7 @@ define("FEEDBACK_USERNAME_DOES_NOT_FIT_PATTERN", "Username does not fit the name
 define("FEEDBACK_EMAIL_DOES_NOT_FIT_PATTERN", "Sorry, your chosen email does not fit into the email naming pattern.");
 define("FEEDBACK_EMAIL_SAME_AS_OLD_ONE", "Sorry, that email address is the same as your current one. Please choose another one.");
 define("FEEDBACK_EMAIL_CHANGE_SUCCESSFUL", "Your email address has been changed successfully.");
+define("FEEDBACK_EMAIL_NOT_MATCH", "Sorry, the email does not match our records.");
 define("FEEDBACK_CAPTCHA_WRONG", "The entered captcha security characters were wrong.");
 define("FEEDBACK_PASSWORD_REPEAT_WRONG", "Password and password repeat are not the same.");
 define("FEEDBACK_PASSWORD_TOO_SHORT", "Password has a minimum length of 6 characters.");

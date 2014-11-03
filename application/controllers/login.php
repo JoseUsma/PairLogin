@@ -115,6 +115,16 @@ class Login extends Controller
     /**
      * Edit user name (show the view with the form)
      */
+    function viewProfile()
+    {
+        // Auth::handleLogin() makes sure that only logged in users can use this action/method and see that page
+        Auth::handleLogin();
+        $this->view->render('login/viewProfile');
+    }
+	
+	/**
+     * Edit user name (show the view with the form)
+     */
     function editUsername()
     {
         // Auth::handleLogin() makes sure that only logged in users can use this action/method and see that page
@@ -134,7 +144,7 @@ class Login extends Controller
         Auth::handleLogin();
         $login_model = $this->loadModel('Login');
         $login_model->editUserName();
-        $this->view->render('login/editusername');
+        $this->view->render('login/viewProfile');
     }
 
     /**
@@ -158,8 +168,11 @@ class Login extends Controller
         // has a valid session.
         Auth::handleLogin();
         $login_model = $this->loadModel('Login');
-        $login_model->editUserEmail();
-        $this->view->render('login/edituseremail');
+        $edit_successful = $login_model->editUserEmail();
+         if ($edit_successful) 
+			$this->view->render('login/viewProfile');
+		else
+			$this->view->render('login/editUserEmail');
     }
 
     /**
@@ -185,8 +198,11 @@ class Login extends Controller
         // has a valid session.
         Auth::handleLogin();
         $login_model = $this->loadModel('Login');
-        $login_model->createAvatar();
-        $this->view->render('login/uploadavatar');
+        $edit_successful = $login_model->createAvatar();        
+		 if ($edit_successful) 
+			$this->view->render('login/viewProfile');
+		else
+			$this->view->render('login/uploadAvatar');
     }
 
     /**
@@ -211,6 +227,8 @@ class Login extends Controller
         Auth::handleLogin();
         $login_model = $this->loadModel('Login');
         $login_model->changeAccountType();
+		//$this->view->account_type = $login_model->getUserAccountType(Session::get('user_account_type'));
+		//var_dump($this->view->account_type);
         $this->view->render('login/changeaccounttype');
     }
 
@@ -294,8 +312,16 @@ class Login extends Controller
     function requestPasswordReset_action()
     {
         $login_model = $this->loadModel('Login');
-        $login_model->requestPasswordReset();
-        $this->view->render('login/requestpasswordreset');
+        $password_reset_successful = $login_model->requestPasswordReset();
+		
+		// check registration status
+        if ($password_reset_successful) {
+            // if YES, then move user to login/index (this is a browser-redirection, not a rendered view)
+            header('location: ' . URL . 'login/viewProfile');
+        } else {
+            // if NO, then move user to login/register (this is a browser-redirection, not a rendered view)
+            header('location: ' . URL . 'login/requestpasswordreset');
+        }
     }
 
     /**

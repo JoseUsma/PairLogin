@@ -13,7 +13,7 @@
 <br>
     <p>
         <div class="col-md-6">
-        <table class="table table-striped">
+        <table class="table">
         <thead>
               <tr>
                 <th>&nbsp;</th>
