@@ -292,7 +292,7 @@ ul#menu li:hover ul.sub-menu {
 }
 
 .login_header .avatar {
-    margin-top:2px;
+    margin:2px;
     float: left;
     width: 44px;
     height: 44px;
@@ -423,17 +423,6 @@ table.overview-table td.avatar {
     font-weight: bold;
 	display: none;
 }
-@media (min-width: 768px) {
-  .header_left_box{
-    right: 0;
-     background-color: #1e2029;
-	 left: auto;
-  }
-  .header_right_box {
-   background-color: #FFF;
-   left: 0;
-  }
-}
 
 /* basic responsive stuff */
 @media only screen and (max-width:800px) {
@@ -442,14 +431,17 @@ table.overview-table td.avatar {
     .header .avatar {
         float: none;
     }
+	.login_header .avatar {
+        float: none;
+    }
 
     .header_right_box {
         /*width: 100%;*/
-        background-color: #1E2029;
+        background-color: #EEE;
     }
 
     ul#menu li {
-        width: 100%;
+        /*width: 100%;*/
         text-align: center;
         margin-left: 0; /* reset -4px hack */
     }
