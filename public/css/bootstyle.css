@@ -51,8 +51,9 @@ p {
 
 .header_right_box {
     float: right;
+	min-width: 150px;
+	background-color: #EEE;
 }
-
 .header a {
     text-decoration: none;
 
@@ -86,7 +87,7 @@ p {
 .login_header li.active a,
 .login_header li.active:hover a {
     color: #fff;
-    background-color: #2c2f3b;
+    background-color: #DDD;
 }
 
 .login_header li:hover a {
@@ -422,7 +423,17 @@ table.overview-table td.avatar {
     font-weight: bold;
 	display: none;
 }
-
+@media (min-width: 768px) {
+  .header_left_box{
+    right: 0;
+     background-color: #1e2029;
+	 left: auto;
+  }
+  .header_right_box {
+   background-color: #FFF;
+   left: 0;
+  }
+}
 
 /* basic responsive stuff */
 @media only screen and (max-width:800px) {
@@ -434,7 +445,7 @@ table.overview-table td.avatar {
 
     .header_right_box {
         /*width: 100%;*/
-        /*background-color: #1E2029;*/
+        background-color: #1E2029;
     }
 
     ul#menu li {
