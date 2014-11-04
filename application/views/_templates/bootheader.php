@@ -37,7 +37,7 @@
 			<div class="header_right_box">
 				<ul id="menu">
 				  <li <?php if ($this->checkForActiveControllerAndAction($filename, "login/index")) { echo ' class="active" '; } ?> >
-						<a href="<?php echo URL; ?>login/index">Login</a>
+						<a href="<?php echo URL; ?>login/index">Log in</a>
 					</li>
 					<li <?php if ($this->checkForActiveControllerAndAction($filename, "login/register")) { echo ' class="active" '; } ?> >
 						<a href="<?php echo URL; ?>login/register">Register</a>
@@ -47,10 +47,13 @@
 			<?php endif; ?>
 			<?php if (Session::get('user_logged_in') == true): ?>
 				<div class="header_right_box">
+					<a href="<?php echo URL; ?>login/viewprofile">
 					<div class="namebox">
 						<?php echo Session::get('user_name'); ?>
 					</div>
+					</a>
 					<div class="avatar">
+						<a href="<?php echo URL; ?>login/viewprofile">
 						<?php if (USE_GRAVATAR) { ?>
 							<img src='<?php echo Session::get('user_gravatar_image_url'); ?>'
 								 style='width:<?php echo AVATAR_SIZE; ?>px; height:<?php echo AVATAR_SIZE; ?>px;' />
@@ -58,6 +61,7 @@
 							<img src='<?php echo Session::get('user_avatar_file'); ?>'
 								 style='width:<?php echo AVATAR_SIZE; ?>px; height:<?php echo AVATAR_SIZE; ?>px;' />
 						<?php } ?>
+						</a>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -104,7 +108,7 @@
                             <a href="<?php echo URL; ?>login/viewprofile">Profile</a>
                         </li>
                         <li>
-                            <a href="<?php echo URL; ?>login/logout">Logout</a>
+                            <a href="<?php echo URL; ?>login/logout">Log out</a>
                         </li>
                     </ul>
                 </li>

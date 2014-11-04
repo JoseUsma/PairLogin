@@ -12,7 +12,7 @@
                 <input type="password" name="user_password" required />
                 <input type="checkbox" name="user_rememberme" class="remember-me-checkbox" />
                 <label class="remember-me-label">Keep me logged in (for 2 weeks)</label>
-                <input type="submit" class="login-submit-button" />
+                <input type="submit" class="btn btn-primary btn-lg" value="Log in"/>
         </form>
         <a href="<?php echo URL; ?>login/register">Register</a>
         |
