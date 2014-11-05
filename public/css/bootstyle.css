@@ -474,7 +474,4 @@ table.overview-table td.avatar {
 .avatar img {
 	width: 44px;
     height: 44px;
-	-moz-border-radius: 22px;
-	-webkit-border-radius: 22px;
-	border-radius: 22px;
 }

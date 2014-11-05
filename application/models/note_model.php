@@ -61,6 +61,7 @@ class NoteModel
 
         $count =  $query->rowCount();
         if ($count == 1) {
+            $_SESSION["feedback_positive"][] = FEEDBACK_NOTE_CREATION_SUCCESS;
             return true;
         } else {
             $_SESSION["feedback_negative"][] = FEEDBACK_NOTE_CREATION_FAILED;
@@ -86,6 +87,7 @@ class NoteModel
 
         $count =  $query->rowCount();
         if ($count == 1) {
+			$_SESSION["feedback_positive"][] = FEEDBACK_NOTE_EDITING_SUCCESS;
             return true;
         } else {
             $_SESSION["feedback_negative"][] = FEEDBACK_NOTE_EDITING_FAILED;
@@ -108,6 +110,7 @@ class NoteModel
         $count =  $query->rowCount();
 
         if ($count == 1) {
+            $_SESSION["feedback_positive"][] = FEEDBACK_NOTE_DELETION_SUCCESS;
             return true;
         } else {
             $_SESSION["feedback_negative"][] = FEEDBACK_NOTE_DELETION_FAILED;

@@ -12,7 +12,7 @@
 			</tr>
 			<tr>
                 <th>Account Type:</th>
-                <td><?php echo (Session::get('user_account_type') == 1?'User':'Manager'); ?></td>
+                <td><?php echo $this->account_type ?></td>
 			    <td>
 			</td>
 			</tr>

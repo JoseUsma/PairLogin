@@ -119,6 +119,8 @@ class Login extends Controller
     {
         // Auth::handleLogin() makes sure that only logged in users can use this action/method and see that page
         Auth::handleLogin();
+		$login_model = $this->loadModel('Login');        
+		$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
         $this->view->render('login/viewprofile');
     }
 	
@@ -143,8 +145,13 @@ class Login extends Controller
         // has a valid session.
         Auth::handleLogin();
         $login_model = $this->loadModel('Login');
-        $login_model->editUserName();
-        $this->view->render('login/viewprofile');
+        $edit_successful = $login_model->editUserName();
+        if ($edit_successful){ 
+			$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
+        	$this->view->render('login/viewprofile');
+		}	
+		else
+			$this->view->render('login/editUsername');
     }
 
     /**
@@ -169,8 +176,10 @@ class Login extends Controller
         Auth::handleLogin();
         $login_model = $this->loadModel('Login');
         $edit_successful = $login_model->editUserEmail();
-         if ($edit_successful) 
-			$this->view->render('login/viewprofile');
+        if ($edit_successful){ 
+			$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
+        	$this->view->render('login/viewprofile');
+		}	
 		else
 			$this->view->render('login/editUserEmail');
     }
@@ -199,8 +208,10 @@ class Login extends Controller
         Auth::handleLogin();
         $login_model = $this->loadModel('Login');
         $edit_successful = $login_model->createAvatar();        
-		 if ($edit_successful) 
-			$this->view->render('login/viewprofile');
+		if ($edit_successful) {
+			$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
+        	$this->view->render('login/viewprofile');
+		}
 		else
 			$this->view->render('login/uploadAvatar');
     }
@@ -212,6 +223,8 @@ class Login extends Controller
     {
         // Auth::handleLogin() makes sure that only logged in users can use this action/method and see that page
         Auth::handleLogin();
+        $login_model = $this->loadModel('Login');        
+		$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
         $this->view->render('login/changeaccounttype');
     }
 
@@ -227,8 +240,8 @@ class Login extends Controller
         Auth::handleLogin();
         $login_model = $this->loadModel('Login');
         $login_model->changeAccountType();
-		//$this->view->account_type = $login_model->getUserAccountType(Session::get('user_account_type'));
-		//var_dump($this->view->account_type);
+		$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
+        
         $this->view->render('login/changeaccounttype');
     }
 

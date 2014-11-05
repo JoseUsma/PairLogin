@@ -25,21 +25,19 @@
 			<tr>
                 <th>Picture:</th>
                 <td> <?php // if usage of gravatar is activated show gravatar image, else show local avatar ?>
-				<?php if (USE_GRAVATAR) { ?>
-					<div class="avatar">
+				<div class="avatar img-thumbnail">
+					<?php if (USE_GRAVATAR) { ?>
 						<img src='<?php echo Session::get('user_gravatar_image_url'); ?>' />
-					</div>
 				<?php } else { ?>
-					<div class="avatar">
 						<img src='<?php echo Session::get('user_avatar_file'); ?>' />
-					</div>
 				<?php } ?>
+				</div>
 				<td><a href="<?php echo URL; ?>login/uploadavatar" class="btn btn-primary" role="button">Edit</a></td>
 				</td>
 			</tr>
 			<tr>
                 <th>Type:</th>
-                <td><?php echo (Session::get('user_account_type') == 1?'User':'Guess'); ?></td>
+                <td><?php echo $this->account_type ?></td>
 				<td><a href="<?php echo URL; ?>login/changeaccounttype" class="btn btn-primary" role="button">Edit</a></td>
 			</tr>
 			<tr>

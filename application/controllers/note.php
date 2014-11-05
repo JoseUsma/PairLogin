@@ -43,7 +43,9 @@ class Note extends Controller
         if (isset($_POST['note_text']) AND !empty($_POST['note_text'])) {
             $note_model = $this->loadModel('Note');
             $note_model->create($_POST['note_text']);
-        }
+        }else{
+			$_SESSION["feedback_negative"][] = FEEDBACK_NOTE_CREATION_FAILED;
+		}
         header('location: ' . URL . 'note');
     }
 
@@ -71,12 +73,18 @@ class Note extends Controller
      */
     public function editSave($note_id)
     {
+		$editSuccess = false;
+        $note_model = $this->loadModel('Note');
         if (isset($_POST['note_text']) && isset($note_id)) {
             // perform the update: pass note_id from URL and note_text from POST
-            $note_model = $this->loadModel('Note');
-            $note_model->editSave($note_id, $_POST['note_text']);
+            $editSuccess = $note_model->editSave($note_id, $_POST['note_text']);
         }
-        header('location: ' . URL . 'note');
+		if ($editSuccess)
+			header('location: ' . URL . 'note');
+		else{
+			$this->view->note = $note_model->getNote($note_id);
+            $this->view->render('note/edit');
+		}	
     }
 
     /**
@@ -88,9 +96,32 @@ class Note extends Controller
     public function delete($note_id)
     {
         if (isset($note_id)) {
+            // get the note that you want to edit (to show the current content)
             $note_model = $this->loadModel('Note');
-            $note_model->delete($note_id);
+            $this->view->note = $note_model->getNote($note_id);
+            $this->view->render('note/delete');
+        } else {
+            header('location: ' . URL . 'note');
         }
-        header('location: ' . URL . 'note');
+    }
+	/**
+     * This method controls what happens when you move to /note/delete(/XX) in your app.
+     * Deletes a note. In a real application a deletion via GET/URL is not recommended, but for demo purposes it's
+     * totally okay.
+     * @param int $note_id id of the note
+     */
+    public function deleteSave($note_id)
+    {
+        $deleteSuccess = false;
+		if (isset($note_id)) {
+            $note_model = $this->loadModel('Note');
+            $deleteSuccess =$note_model->delete($note_id);
+        }
+        if ($deleteSuccess)
+			header('location: ' . URL . 'note');
+		else{
+			$this->view->note = $note_model->getNote($note_id);
+            $this->view->render('note/delete');
+		}	
     }
 }
