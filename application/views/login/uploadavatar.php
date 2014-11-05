@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Upload Picture</h1>
+    <h3>Upload Picture</h3>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
@@ -28,15 +28,15 @@
 			</tr>
 			<tr>
                 <th>New Picture:</th>
-                <td><input type="file" name="avatar_file" required class="btn btn-lg btn-primary" />
+                <td><input type="file" name="avatar_file" required class="btn btn-primary" />
 				<!-- max size 5 MB (as many people directly upload high res pictures from their digital cameras) -->
 					</td>
 			</tr>
 			<tr>
-                <td><input type="button" value="Cancel" class="btn btn-lg btn-default" onclick="window.location.href='<?php echo URL; ?>login/viewprofile'"/></td>
+                <td><input type="button" value="Cancel" class="btn btn-default" onclick="window.location.href='<?php echo URL; ?>login/viewprofile'"/></td>
 				<td>
         <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
-        <input class="btn btn-lg btn-primary" name="submit" type="submit" value="Upload image" /></td>
+        <input class="btn btn-primary" name="submit" type="submit" value="Upload image" /></td>
 			</tr>
 		</tbody>
 		</table>

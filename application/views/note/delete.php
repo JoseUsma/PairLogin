@@ -1,10 +1,10 @@
 <div class="container">
     <div class="col-md-8">
-	<!-- echo out the system feedback (error and success messages) -->
+	
+	<h3>Delete note</h3>
+    <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-	<h3>Delete note</h3>
-    
     <?php if ($this->note) { ?>
         <form method="post" role="form" action="<?php echo URL; ?>note/deleteSave/<?php echo $this->note->note_id; ?>">
             <div class="form-group">
@@ -14,7 +14,7 @@
 			</div>
 			 <div class="form-group">
 				<input type="button" value="Cancel" class="btn btn-default" onclick="window.location.href='<?php echo URL; ?>note'"/>			
-				<input type="submit" value="Delete this note"  class="btn btn-danger" />
+				<input type="submit" value="Delete note"  class="btn btn-danger" />
 			</div>
         </form>
     <?php } else { ?>

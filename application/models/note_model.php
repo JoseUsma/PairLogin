@@ -22,7 +22,7 @@ class NoteModel
      */
     public function getAllNotes()
     {
-        $sql = "SELECT user_id, note_id, note_text FROM notes WHERE user_id = :user_id";
+        $sql = "SELECT user_id, note_id, note_text FROM notes WHERE user_id = :user_id ORDER BY note_id DESC";
         $query = $this->db->prepare($sql);
         $query->execute(array(':user_id' => $_SESSION['user_id']));
 

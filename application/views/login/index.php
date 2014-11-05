@@ -4,7 +4,7 @@
     <?php $this->renderFeedbackMessages(); ?>
 
     <div class="login-default-box">
-        <h1>Login</h1>
+        <h3>Login</h3>
         <form action="<?php echo URL; ?>login/login" method="post">
                 <label>Username (or email)</label>
                 <input type="text" name="user_name" required />

@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Change account type</h1>
+    <h3>Change account type</h3>
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
@@ -17,16 +17,16 @@
 			</td>
 			</tr>
 			<tr>
-                <td><input type="button" value="Cancel" class="btn btn-lg btn-default" onclick="window.location.href='<?php echo URL; ?>login/viewprofile'"/></td>
+                <td><input type="button" value="Cancel" class="btn btn-default" onclick="window.location.href='<?php echo URL; ?>login/viewprofile'"/></td>
 			    <td><?php if (Session::get('user_account_type') == 1) { ?>
 					<form action="<?php echo URL; ?>login/changeaccounttype_action" method="post">
 						<label></label>
-						<input class="btn btn-lg btn-primary" type="submit" name="user_account_upgrade" value="Upgrade my account" />
+						<input class="btn btn-primary" type="submit" name="user_account_upgrade" value="Upgrade my account" />
 					</form>
 					<?php } elseif (Session::get('user_account_type') == 2) { ?>
 					<form action="<?php echo URL; ?>login/changeaccounttype_action" method="post">
 						<label></label>
-						<input class="btn btn-lg btn-info" type="submit" name="user_account_downgrade" value="Downgrade my account" />
+						<input class="btn btn-info" type="submit" name="user_account_downgrade" value="Downgrade my account" />
 					</form>
 					<?php } ?>
 				</td>

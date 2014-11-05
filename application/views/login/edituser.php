@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Set new password</h1>
+    <h3>Set new password</h3>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>

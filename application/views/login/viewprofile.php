@@ -1,9 +1,7 @@
 <div class="container">
-    <h1>Profile</h1>
-
+    <h3>Profile</h3>
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
-
     <div class="col-md-6">
         <table class="table">
         <tbody>

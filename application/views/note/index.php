@@ -1,17 +1,16 @@
 <div class="container">
-    <div class="col-md-8">
+    <div class="col-md-8">    
+	<h3>Notes</h3>
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-	<h3>Notes</h3>
-    
 	<form method="post" role="form" action="<?php echo URL;?>note/create">
         <div class="form-group">
 			<label class="sr-only" for="note_text">New note</label>
 			<input type="text" class="form-control" name="note_text" id="note_text"  placeholder="Enter note"/>
         </div>
         <div class="form-group">
-			<input type="submit" value='Create this note' class="btn btn-success" />
+			<input type="submit" value='Create note' class="btn btn-success" />
 		</div>	
     </form>
 

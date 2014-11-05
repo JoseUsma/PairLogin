@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Request a password reset</h1>
+    <h3>Request a password reset</h3>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
@@ -18,11 +18,11 @@
 			</tr>
 			 <tr>
                 <th>Email:</th>
-                <td><input id="password_reset_input_username" class="password_reset_input" type="text" name="user_email" required /></td>
+                <td><input id="password_reset_input_username" class="password_reset_input form-control"  type="text" name="user_email" required /></td>
 			</tr>
 			<tr>
-                <td><input type="button" value="Cancel" class="btn btn-lg btn-default" onclick="window.location.href='<?php echo URL; ?>login/viewprofile'"/></td>
-				<td><input class="btn btn-lg btn-primary" type="submit"  name="request_password_reset" value="Reset my password" />
+                <td><input type="button" value="Cancel" class="btn btn-default" onclick="window.location.href='<?php echo URL; ?>login/viewprofile'"/></td>
+				<td><input class="btn btn-primary" type="submit"  name="request_password_reset" value="Reset my password" />
 				</td>
 			</tr>
 		</tbody>

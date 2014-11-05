@@ -1,10 +1,10 @@
 <div class="container">
     <div class="col-md-8">
-	<!-- echo out the system feedback (error and success messages) -->
+	
+	<h3>Edit note</h3>
+    <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-	<h3>Edit a note</h3>
-    
     <?php if ($this->note) { ?>
         <form method="post" role="form" action="<?php echo URL; ?>note/editSave/<?php echo $this->note->note_id; ?>">
              <div class="form-group">
@@ -13,7 +13,7 @@
 				<input type="text" class="form-control" name="note_text" id="note_text" value="<?php echo htmlentities($this->note->note_text); ?>" />
 			</div>
             	<input type="button" value="Cancel" class="btn btn-default" onclick="window.location.href='<?php echo URL; ?>note'"/>	
-				<input type="submit" value="Edit this note"  class="btn btn-primary" />			
+				<input type="submit" value="Edit note"  class="btn btn-primary" />			
         </form>
     <?php } else { ?>
         <p>This note does not exist.</p>

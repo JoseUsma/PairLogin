@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Change your email adress</h1>
+    <h3>Change your email adress</h3>
 
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
@@ -14,11 +14,11 @@
 			</tr>
 			<tr>
                 <th>New Email address:</th>
-                <td><input type="text" name="user_email" required /></td>
+                <td><input type="text" class="form-control" name="user_email" required /></td>
 			</tr>
 			<tr>
-                <td><input type="button" value="Cancel" class="btn btn-lg btn-default" onclick="window.location.href='<?php echo URL; ?>login/viewprofile'"/></td>
-				<td><input class="btn btn-lg btn-primary" type="submit" value="Submit" /></td>
+                <td><input type="button" value="Cancel" class="btn btn-default" onclick="window.location.href='<?php echo URL; ?>login/viewprofile'"/></td>
+				<td><input class="btn btn-primary" type="submit" value="Submit" /></td>
 			</tr>
 		</tbody>
 		</table>
