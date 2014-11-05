@@ -14,6 +14,9 @@
 
 // Load application config (error reporting, database credentials etc.)
 require 'application/config/config.php';
+require 'application/config/email.php';
+require 'application/config/messages.php';
+
 
 // The auto-loader to load the php-login related internal stuff automatically
 require 'application/config/autoload.php';

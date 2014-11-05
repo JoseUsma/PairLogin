@@ -20,7 +20,7 @@ ini_set("display_errors", 1);
  * if you are using a (different) port, then put this in here, like http://mydomain:8888/subfolder/
  * Note: The trailing slash is important!
  */
-define('URL', 'http://www.usmagallery.com/PairLogin/');
+define('URL', 'http://jose-4/PairLogin/');
 
 /**
  * Configuration for: Database
@@ -97,9 +97,9 @@ define('COOKIE_DOMAIN', '.localhost');
 
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'pair');
-define('DB_USER', 'PairLogin');
-define('DB_PASS', 'P41rL0g1n');
+define('DB_NAME', 'php_mvc');
+define('DB_USER', 'root');
+define('DB_PASS', 'dkc408a1f');
 
 /**
  * Configuration for: Hashing strength
