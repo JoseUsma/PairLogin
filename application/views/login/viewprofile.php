@@ -6,6 +6,19 @@
         <table class="table">
         <tbody>
             <tr>
+                <th>Picture:</th>
+                <td> <?php // if usage of gravatar is activated show gravatar image, else show local avatar ?>
+				<div class="avatar img-thumbnail">
+					<?php if (USE_GRAVATAR) { ?>
+						<img src='<?php echo Session::get('user_gravatar_image_url'); ?>' />
+				<?php } else { ?>
+						<img src='<?php echo Session::get('user_avatar_file'); ?>' />
+				<?php } ?>
+				</div>
+				<td><a href="<?php echo URL; ?>login/uploadavatar" class="btn btn-primary" role="button">Edit</a></td>
+				</td>
+			</tr>
+			<tr>
                 <th>Username:</th>
                 <td><?php echo Session::get('user_name'); ?></td>
 			    <td><a href="<?php echo URL; ?>login/editusername" class="btn btn-primary" role="button">Edit</a></td>
@@ -21,27 +34,14 @@
 				<td><a href="<?php echo URL; ?>login/edituseremail" class="btn btn-primary" role="button">Edit</a></td>
 			</tr>
 			<tr>
-                <th>Picture:</th>
-                <td> <?php // if usage of gravatar is activated show gravatar image, else show local avatar ?>
-				<div class="avatar img-thumbnail">
-					<?php if (USE_GRAVATAR) { ?>
-						<img src='<?php echo Session::get('user_gravatar_image_url'); ?>' />
-				<?php } else { ?>
-						<img src='<?php echo Session::get('user_avatar_file'); ?>' />
-				<?php } ?>
-				</div>
-				<td><a href="<?php echo URL; ?>login/uploadavatar" class="btn btn-primary" role="button">Edit</a></td>
-				</td>
-			</tr>
-			<tr>
                 <th>Type:</th>
                 <td><?php echo $this->account_type ?></td>
 				<td><a href="<?php echo URL; ?>login/changeaccounttype" class="btn btn-primary" role="button">Edit</a></td>
 			</tr>
 			<tr>
                 <th>&nbsp;</th>
-            	<td><a href="<?php echo URL; ?>login/logout" class="btn btn-warning" role="button">Log out</a></td>
-			    <td>&nbsp;</td>
+                <td>&nbsp;</td>
+			 	<td><a href="<?php echo URL; ?>login/logout" class="btn btn-warning" role="button">Log out</a></td>
 			</tr>
 		 </tbody>		
 		</table>

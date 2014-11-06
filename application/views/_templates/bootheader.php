@@ -85,8 +85,8 @@
                 <a href="<?php echo URL; ?>help/index">Help</a>
             </li>
 			-->
-            <li <?php if ($this->checkForActiveController($filename, "overview")) { echo ' class="active" '; } ?> >
-                <a href="<?php echo URL; ?>overview/index">Overview</a>
+            <li <?php if ($this->checkForActiveController($filename, "members")) { echo ' class="active" '; } ?> >
+                <a href="<?php echo URL; ?>members/index">Members</a>
             </li>
             <li <?php if ($this->checkForActiveController($filename, "template")) { echo ' class="active" '; } ?> >
                 <a href="<?php echo URL; ?>theme/index">Theme</a>
