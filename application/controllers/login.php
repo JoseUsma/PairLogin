@@ -323,9 +323,12 @@ class Login extends Controller
         $password_reset_successful = $login_model->requestPasswordReset();
 		
 		// check registration status
-        if ($password_reset_successful) {
+       if ($password_reset_successful) {
             // if YES, then move user to login/index (this is a browser-redirection, not a rendered view)
-            header('location: ' . URL . 'login/viewprofile');
+            if (Session::get('user_logged_in') == true) 
+				header('location: ' . URL . 'login/viewprofile');
+			else
+				header('location: ' . URL . 'index/index');
         } else {
             // if NO, then move user to login/register (this is a browser-redirection, not a rendered view)
             header('location: ' . URL . 'login/requestpasswordreset');
