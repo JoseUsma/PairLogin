@@ -3,8 +3,8 @@
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-    <div class="register-default-box">
-        <h1>Register</h1>
+    <div class="jumbotron register-default-box">
+        <p class="lead">Register</p>
         <!-- register form -->
         <form method="post" action="<?php echo URL; ?>login/register_action" name="registerform">
             <!-- the user name input field uses a HTML5 pattern check -->
@@ -38,8 +38,8 @@
             <label>
                 Please enter these characters
             </label>
-            <input type="text" name="captcha" required />
-            <input type="submit"  name="register" value="Register" />
+            <input type="text" name="captcha" required /><br>
+            <input type="submit"  class="btn btn-success btn-lg"  name="register" value="Register" />
 
         </form>
     </div>

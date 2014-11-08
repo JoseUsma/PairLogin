@@ -147,11 +147,10 @@ class Login extends Controller
         $login_model = $this->loadModel('Login');
         $edit_successful = $login_model->editUserName();
         if ($edit_successful){ 
-			$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
-        	$this->view->render('login/viewprofile');
+			header('location: ' . URL . 'login/viewprofile');
 		}	
 		else
-			$this->view->render('login/editusername');
+			header('location: ' . URL . 'login/editusername');
     }
 
     /**
@@ -177,11 +176,10 @@ class Login extends Controller
         $login_model = $this->loadModel('Login');
         $edit_successful = $login_model->editUserEmail();
         if ($edit_successful){ 
-			$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
-        	$this->view->render('login/viewprofile');
+			header('location: ' . URL . 'login/viewprofile');
 		}	
 		else
-			$this->view->render('login/edituseremail');
+			header('location: ' . URL . 'login/edituseremail');
     }
 
     /**
@@ -209,11 +207,10 @@ class Login extends Controller
         $login_model = $this->loadModel('Login');
         $edit_successful = $login_model->createAvatar();        
 		if ($edit_successful) {
-			$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
-        	$this->view->render('login/viewprofile');
+			header('location: ' . URL . 'login/viewprofile');
 		}
 		else
-			$this->view->render('login/uploadAvatar');
+			header('location: ' . URL . 'login/uploadAvatar');
     }
 
     /**
@@ -240,9 +237,7 @@ class Login extends Controller
         Auth::handleLogin();
         $login_model = $this->loadModel('Login');
         $login_model->changeAccountType();
-		$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
-        
-        $this->view->render('login/changeaccounttype');
+		header('location: ' . URL . 'login/changeaccounttype');		
     }
 
     /**

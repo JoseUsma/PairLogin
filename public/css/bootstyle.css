@@ -424,9 +424,21 @@ table.overview-table td.avatar {
 	display: none;
 }
 
+.wide-only {
+	display:block;
+}
+.mobile-only {
+	display:none;
+}
 /* basic responsive stuff */
 @media only screen and (max-width:800px) {
 
+.wide-only {
+	display:none;
+}
+.mobile-only {
+	display:block;
+}
     .header_left_box,
     .header .avatar {
         float: none;
