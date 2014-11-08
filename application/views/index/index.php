@@ -7,10 +7,10 @@
     </div>
     
 	<div class="jumbotron" style="float:left">
-        <p class="lead">Get your <b>business cards</b> for <b>free</b> </p>
-	
+    
 	<?php if (Session::get('user_logged_in') == false):?>
-      <p class="lead"><a href="<?php echo URL; ?>login/index" class="btn btn-primary" role="button">Log in</a> or
+      <p class="lead">Get your <b>business cards</b> for <b>free</b> </p>
+	  <p class="lead"><a href="<?php echo URL; ?>login/index" class="btn btn-primary" role="button">Log in</a> or
 	  <a href="<?php echo URL; ?>login/register" class="btn btn-success" role="button">Register</a> 
 	  to our <b>Pair network</b>
 	  </p>
@@ -31,8 +31,8 @@
          <p class="lead">Profile:</b> </p>
 		 <table class="table">
         <tbody>
-            <tr>
-                <th>Picture:</th>
+            <tr valign="top">
+                <th><font class="wide-only">Picture:</font></th>
                 <td> <?php // if usage of gravatar is activated show gravatar image, else show local avatar ?>
 				<div class="avatar img-thumbnail">
 					<?php if (USE_GRAVATAR) { ?>
@@ -45,22 +45,22 @@
 				</td>
 			</tr>
 			<tr>
-                <th>Username:</th>
+                <th><font class="wide-only">Username:</font></th>
                 <td><?php echo Session::get('user_name'); ?></td>
 			    <td><a href="<?php echo URL; ?>login/editusername" class="btn btn-primary" role="button">Edit</a></td>
 			</tr>
 			<tr>
-                <th>Password:</th>
+                <th><font class="wide-only">Password:</font></th>
                 <td>*******</td>
 			    <td><a href="<?php echo URL; ?>login/requestPasswordReset" class="btn btn-primary" role="button">Edit</a></td>
 			</tr>
 			<tr>
-                <th>Email:</th>
+                <th><font class="wide-only">Email:</font></th>
                 <td><?php echo Session::get('user_email'); ?></td>
 				<td><a href="<?php echo URL; ?>login/edituseremail" class="btn btn-primary" role="button">Edit</a></td>
 			</tr>
 			<tr>
-                <th>Type:</th>
+                <th><font class="wide-only">Type:</font></th>
                 <td><?php echo $this->account_type ?></td>
 				<td><a href="<?php echo URL; ?>login/changeaccounttype" class="btn btn-primary" role="button">Edit</a></td>
 			</tr>
