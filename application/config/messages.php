@@ -71,3 +71,5 @@ define("FEEDBACK_FACEBOOK_EMAIL_ALREADY_EXISTS", "Sorry, but you have already re
 define("FEEDBACK_FACEBOOK_USERNAME_ALREADY_EXISTS", "Sorry, but you have already registered here (your Facebook username exists in our database).");
 define("FEEDBACK_FACEBOOK_REGISTER_SUCCESSFUL", "You have been successfully registered with Facebook.");
 define("FEEDBACK_FACEBOOK_OFFLINE", "We could not reach the Facebook servers. Maybe Facebook is offline (that really happens sometimes).");
+define("FEEDBACK_EMAIL_NOT_EXISTS", "Email is not registered in this system.");
+define("FEEDBACK_EMAIL_NOT_MATCH", "Email does not match our records.");

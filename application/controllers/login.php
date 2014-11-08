@@ -151,7 +151,7 @@ class Login extends Controller
         	$this->view->render('login/viewprofile');
 		}	
 		else
-			$this->view->render('login/editUsername');
+			$this->view->render('login/editusername');
     }
 
     /**
@@ -181,7 +181,7 @@ class Login extends Controller
         	$this->view->render('login/viewprofile');
 		}	
 		else
-			$this->view->render('login/editUserEmail');
+			$this->view->render('login/edituseremail');
     }
 
     /**

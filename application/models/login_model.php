@@ -832,22 +832,40 @@ class LoginModel
         $user_name = Session::get('user_name');
 		$user_email = strip_tags($_POST['user_email']);
 
-        // check if that username exists
-        $query = $this->db->prepare("SELECT user_id, user_email FROM users
-                                     WHERE user_name = :user_name 
-									 AND user_email = :user_email 
-									 AND user_provider_type = :provider_type");
-        $query->execute(array(':user_name' => $user_name, ':user_email' => $user_email,':provider_type' => 'DEFAULT'));
-        $count = $query->rowCount();
-        if ($count != 1) {
-            $_SESSION["feedback_negative"][] = FEEDBACK_EMAIL_NOT_MATCH;
-            return false;
-        }
+		if (isset($user_name)){
+			// check if that username exists
+			$query = $this->db->prepare("SELECT user_id, user_email FROM users
+										 WHERE user_name = :user_name 
+										 AND user_email = :user_email 
+										 AND user_provider_type = :provider_type");
+			$query->execute(array(':user_name' => $user_name, ':user_email' => $user_email,':provider_type' => 'DEFAULT'));
+			$count = $query->rowCount();
+			if ($count != 1) {
+				$_SESSION["feedback_negative"][] = FEEDBACK_EMAIL_NOT_MATCH;
+				return false;
+			}
+			
+			$result_user_row = $result = $query->fetch();
+			$user_email = $result_user_row->user_email;
+		}
+		else{
+			 // check if that username exists
+			$query = $this->db->prepare("SELECT user_id, user_email,user_name FROM users
+										 WHERE user_email = :user_email 
+										 AND user_provider_type = :provider_type");
+			$query->execute(array(':user_email' => $user_email,':provider_type' => 'DEFAULT'));
+			$count = $query->rowCount();
+			if ($count != 1) {
+				$_SESSION["feedback_negative"][] = FEEDBACK_EMAIL_NOT_EXISTS;
+				return false;
+			}
+			// get result
+			$result_user_row = $result = $query->fetch();
+			$user_email = $result_user_row->user_email;
+			$user_name = $result_user_row->user_name;
+		}
 
-        // get result
-        $result_user_row = $result = $query->fetch();
-        $user_email = $result_user_row->user_email;
-
+        
         // set token (= a random hash string and a timestamp) into database
         if ($this->setPasswordResetDatabaseToken($user_name, $user_password_reset_hash, $temporary_timestamp) == true) {
             // send a mail to the user, containing a link with username and token hash string

@@ -7,7 +7,7 @@
 class Index extends Controller
 {
     /**
-     * Construct this object by extending the basic Controller class
+     * Construct this object by extending the Controller class
      */
     function __construct()
     {
@@ -20,6 +20,10 @@ class Index extends Controller
      */
     function index()
     {
-            $this->view->render('index/index');
+        if (isset($_SESSION['user_logged_in'])){
+			$login_model = $this->loadModel('Login');
+			$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
+		}
+		$this->view->render('index/index');			
     }
 }

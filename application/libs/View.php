@@ -7,6 +7,15 @@
  */
 class View
 {
+	/**
+     * $this->view->display('help/index'); to show (in this example) the view index.php in the folder help.
+    * @param string $filename Path of the to-be-rendered view, usually folder/file(.php)
+     * @param boolean $render_without_header_and_footer Optional: Set this to true if you don't want to include header and footer
+     */
+    public function display($filename, $render_without_header_and_footer = false)
+    {
+        require VIEWS_PATH . $filename . '.php';        
+    }
     /**
      * simply includes (=shows) the view. this is done from the controller. In the controller, you usually say
      * $this->view->render('help/index'); to show (in this example) the view index.php in the folder help.
