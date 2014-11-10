@@ -30,7 +30,8 @@
 	
 	 <?php if (Session::get('user_logged_in') == true) { ?>
 	<div class="jumbotron" style="float:right">
-         <p class="lead">Profile:</b> <a style="float:right" href="<?php echo URL; ?>login/logout" class="btn btn-warning" role="button">Log out</a></p>
+         <p class="lead">Profile:</b> 
+		 <a style="float:right" href="<?php echo URL; ?>login/logout" class="btn btn-warning" role="button">Log out</a></p>
 		 <table class="table">
         <tbody>
             <tr valign="top">

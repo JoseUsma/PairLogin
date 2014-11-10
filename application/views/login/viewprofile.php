@@ -1,11 +1,15 @@
 <div class="container">
-    <h3>Profile</h3>
-    <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
     <div class="col-md-6">
         <table class="table">
         <tbody>
             <tr>
+                <th>Profile</th>
+                <td>&nbsp;</td>
+				<td><a href="<?php echo URL; ?>login/logout" class="btn btn-warning" role="button">Log out</a></td>
+				</td>
+			</tr>
+			 <tr>
                 <th>Picture:</th>
                 <td> <?php // if usage of gravatar is activated show gravatar image, else show local avatar ?>
 				<div class="avatar img-thumbnail">
@@ -14,7 +18,7 @@
 				<?php } else { ?>
 						<img src='<?php echo Session::get('user_avatar_file'); ?>' />
 				<?php } ?>
-				</div>
+				</div></td>
 				<td><a href="<?php echo URL; ?>login/uploadavatar" class="btn btn-primary" role="button">Edit</a></td>
 				</td>
 			</tr>
@@ -37,11 +41,6 @@
                 <th>Type:</th>
                 <td><?php echo $this->account_type ?></td>
 				<td><a href="<?php echo URL; ?>login/changeaccounttype" class="btn btn-primary" role="button">Edit</a></td>
-			</tr>
-			<tr>
-                <th>&nbsp;</th>
-                <td>&nbsp;</td>
-			 	<td><a href="<?php echo URL; ?>login/logout" class="btn btn-warning" role="button">Log out</a></td>
 			</tr>
 		 </tbody>		
 		</table>

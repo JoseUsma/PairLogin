@@ -98,7 +98,7 @@
             <?php endif; ?>
             <?php if (Session::get('user_logged_in') == true):?>
             <li <?php if ($this->checkForActiveController($filename, "note")) { echo ' class="active" '; } ?> >
-                <a href="<?php echo URL; ?>note/index">My Notes</a>
+                <a href="<?php echo URL; ?>note/index">Notes</a>
             </li>
             <?php endif; ?>
 
