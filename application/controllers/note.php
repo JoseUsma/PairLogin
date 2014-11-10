@@ -26,10 +26,37 @@ class Note extends Controller
     public function index()
     {
         $note_model = $this->loadModel('Note');
-        $this->view->notes = $note_model->getAllNotes();
-        $this->view->render('note/index');
+		$this->view->result_count = $note_model->getNotesCount();
+		//$USR_manager_results->get_companies_count($company_id,$sql_aux);
+		$this->view->page = isset($_POST['page'])?$_POST['page']:1;
+		$this->view->recordIni = ($this->view->page-1)* PAGE_ITEMS;
+		$this->view->notes = $note_model->getNotesResult($this->view->recordIni,PAGE_ITEMS);
+        
+		$this->view->page_content = $this->view->notes;
+	   $this->view->page_div = "searchresults";
+	   $this->view->web_page = "note/page";
+		
+		$this->view->render('note/index');
     }
 
+	public function page()
+    {
+
+		$note_model = $this->loadModel('Note');
+		$this->view->result_count= $note_model->getNotesCount();
+		//$USR_manager_results->get_companies_count($company_id,$sql_aux);
+		$this->view->page = isset($_POST['page'])?$_POST['page']:1;
+		$this->view->recordIni = ($this->view->page-1)* PAGE_ITEMS;
+		$this->view->notes = $note_model->getNotesResult($this->view->recordIni,PAGE_ITEMS);
+        
+		$this->view->page_content = $this->view->notes;
+	    $this->view->page_div = "searchresults";
+	    $this->view->web_page = "note/page";
+		//var_dump($_POST['page']);
+
+		$this->view->render('note/page',true);
+    }
+	
     /**
      * This method controls what happens when you move to /dashboard/create in your app.
      * Creates a new note. This is usually the target of form submit actions.

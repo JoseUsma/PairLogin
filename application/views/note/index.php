@@ -15,21 +15,6 @@
     </form>
 
     <h3 style="margin-top: 20px;">List of your notes</h3>
-	
-	<table class="table">
-    <?php
-        if ($this->notes) {
-            foreach($this->notes as $key => $value) {
-                echo '<tr>';
-                echo '<td width="30px"><a href="'. URL . 'note/edit/' . $value->note_id.'" class="btn btn-primary">Edit</a></td>';
-                echo '<td width="30px"><a href="'. URL . 'note/delete/' . $value->note_id.'" class="btn btn-danger">Delete</a></td>';
-                echo '<td>' . htmlentities($value->note_text) . '</td>';
-                echo '</tr>';
-            }
-        } else {
-            echo 'No notes yet. Create some !';
-        }
-    ?>
-    </table>
+	<?php $this->render('note/page', true) ?>
 	</div>
 </div>

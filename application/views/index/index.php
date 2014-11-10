@@ -21,14 +21,16 @@
 
      <?php if (Session::get('user_logged_in') == true):?>
 	  <p class="lead">Welcome back to our <b>Pair network</b></p>
-	  <p class="lead"><a href="<?php echo URL; ?>login/viewprofile" class="btn btn-primary btn-lg" role="button">View Account</a> </b>
-	  </p>
+	  <p class="lead"><a href="<?php echo URL; ?>note/index" class="btn btn-primary btn-lg" role="button">Notes</a> </b></p>
+      <p class="lead"><a href="<?php echo URL; ?>login/viewprofile" class="btn btn-primary btn-lg" role="button">Messages</a> </b></p>
+      <p class="lead"><a href="<?php echo URL; ?>login/viewprofile" class="btn btn-primary btn-lg" role="button">Cards</a> </b></p>
+	  <a href="<?php echo URL; ?>login/logout" class="btn btn-warning btn-lg" role="button">Log out</a>
      <?php endif; ?>
     </div>
 	
 	 <?php if (Session::get('user_logged_in') == true) { ?>
 	<div class="jumbotron" style="float:right">
-         <p class="lead">Profile:</b> </p>
+         <p class="lead">Profile:</b> <a style="float:right" href="<?php echo URL; ?>login/logout" class="btn btn-warning" role="button">Log out</a></p>
 		 <table class="table">
         <tbody>
             <tr valign="top">
@@ -64,11 +66,6 @@
                 <td><?php echo $this->account_type ?></td>
 				<td><a href="<?php echo URL; ?>login/changeaccounttype" class="btn btn-primary" role="button">Edit</a></td>
 			</tr>
-			<tr>
-                <th>&nbsp;</th>
-                <td>&nbsp;</td>
-			 	<td><a href="<?php echo URL; ?>login/logout" class="btn btn-warning" role="button">Log out</a></td>
-			</tr>
 		 </tbody>		
 		</table>
 	</div>	
@@ -81,7 +78,7 @@
                  <div class="form-group">
 					<label for="login_input_username">
                 Username
-                <span style="display: block; font-size: 11px; color: #999;">(only letters and numbers, 2 to 64 characters)</span>
+                <span style="display: block; font-size: 11px; color: #999;">Only letters and numbers, 2 to 64 characters</span>
             </label>
             <input id="login_input_username" class="form-control" style="width:20px" type="text" pattern="[a-zA-Z0-9]{2,64}" name="user_name" required />
             <!-- the email input field uses a HTML5 email type check -->
@@ -94,7 +91,8 @@
             </div> 
             <div class="form-group">
 			<label for="login_input_password_new">
-                Password (min. 6 characters!)
+                Password 
+				<span style="display: block; font-size: 11px; color: #999;">min. 6 characters!</span>
             </label>
             <input id="login_input_password_new" class="form-control" style="width:20px" type="password" name="user_password_new" pattern=".{6,}" required autocomplete="off" />
             </div> 
@@ -105,14 +103,14 @@
             <!-- to avoid weird with-slash-without-slash issues: simply always use the URL constant here -->
             </div> 
             <div class="form-group">
-			<img id="captcha" src="<?php echo URL; ?>login/showCaptcha" />
+			<label>
+                Please enter these characters
+            </label><br>
+            <img id="captcha" src="<?php echo URL; ?>login/showCaptcha" />
             <span style="display: block; font-size: 11px; color: #999; margin-bottom: 10px">
                 <!-- quick & dirty captcha reloader -->
                 <a href="#" onclick="document.getElementById('captcha').src = '<?php echo URL; ?>login/showCaptcha?' + Math.random(); return false">[ Reload Captcha ]</a>
             </span>
-            <label>
-                Please enter these characters
-            </label>
             <input class="form-control" style="width:20px" type="text" name="captcha" required />
             </div> 
             <div class="form-group">

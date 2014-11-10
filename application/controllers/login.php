@@ -313,6 +313,13 @@ class Login extends Controller
     {
         $this->view->render('login/requestpasswordreset');
     }
+ /**
+     * Request password reset page
+     */
+    function test()
+    {
+        $this->view->render('login/test');
+    }
 
     /**
      * Request password reset action (after form submit)

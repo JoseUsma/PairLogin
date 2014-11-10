@@ -4,3 +4,7 @@ $(document).ready(function() {
     // ...
 
 });
+
+    function loadResultPage(target, URI,page) {
+		$(target).load(URI, { "page": page });
+	};

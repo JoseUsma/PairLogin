@@ -14,7 +14,40 @@ class NoteModel
     {
         $this->db = $db;
     }
+    /**
+     * Getter for all notes (notes are an implementation of example data, in a real world application this
+     * would be data that the user has created)
+     * @return array an array with several objects (the results)
+     */
+    public function getNotesCount()
+    {
+        $sql = "SELECT count(*) ResultCount FROM notes WHERE user_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':user_id' => $_SESSION['user_id']));
 
+        // fetchAll() is the PDO method that gets all result rows
+        return $query->fetch()->ResultCount;
+    }    /**
+     * Getter for all notes (notes are an implementation of example data, in a real world application this
+     * would be data that the user has created)
+     * @return array an array with several objects (the results)
+     */
+    public function getNotesResult($recordIni=1,$pageRecordLimit=30)
+    {
+        $sql = "SELECT user_id, note_id, note_text FROM notes 
+				WHERE user_id = :user_id 
+				  ORDER BY note_id DESC 
+				  LIMIT $recordIni , $pageRecordLimit ";
+				// LIMIT :record_ini ,:record_limit";
+		//var_dump($sql);
+		 $query = $this->db->prepare($sql);
+        //$query->execute(array(':user_id' => $_SESSION['user_id'],':record_ini' => $recordIni,':record_limit' => $pageRecordLimit));
+		$query->execute(array(':user_id' => $_SESSION['user_id']));
+		//$query->execute(array(':user_id' => $_SESSION['user_id'],':record_ini' => $recordIni));
+
+        // fetchAll() is the PDO method that gets all result rows
+        return $query->fetchAll();
+    }
     /**
      * Getter for all notes (notes are an implementation of example data, in a real world application this
      * would be data that the user has created)
