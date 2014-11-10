@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/reset.css" />
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/bootstyle.css" />
 	<!-- Addition 14/11/01 Ini -->
-		<link href="<?php echo URL; ?>public/css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php echo URL; ?>public/css/bootstrap.css" rel="stylesheet">
 		<link href="<?php echo URL; ?>public/css/sticky-footer-navbar.css" rel="stylesheet">
     <!-- Addition 14/11/01 End -->
 	
@@ -88,7 +88,7 @@
             <li <?php if ($this->checkForActiveController($filename, "members")) { echo ' class="active" '; } ?> >
                 <a href="<?php echo URL; ?>members/index">Members</a>
             </li>
-            <li <?php if ($this->checkForActiveController($filename, "template")) { echo ' class="active" '; } ?> >
+            <li <?php if ($this->checkForActiveController($filename, "theme")) { echo ' class="active" '; } ?> >
                 <a href="<?php echo URL; ?>theme/index">Theme</a>
             </li>
             <?php if (Session::get('user_logged_in') == true):?>
