@@ -1,0 +1,61 @@
+DROP TABLE IF EXISTS `web_scr_database_version`;
+CREATE TABLE  `web_scr_database_version` (
+  `database_version_id` int(11) NOT NULL AUTO_INCREMENT,
+  `database_version_name` varchar(255) NOT NULL DEFAULT '',
+  `database_script_number` int(11) DEFAULT '0',
+  `database_update` date NOT NULL DEFAULT '0000-00-00',
+  `description` text,
+  `transaction_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`database_version_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `web_scr_exceptions`;
+CREATE TABLE `web_scr_exceptions` (
+  `system_exception_id` int(11) NOT NULL AUTO_INCREMENT,
+  `usr_log_id` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `reference_id` tinytext,
+  `prev_value` tinytext,
+  `new_value` tinytext,
+  `description` tinytext,
+  `exception_type_id` tinytext,
+  `transaction_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`system_exception_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `web_scr_question`;
+CREATE TABLE  `web_scr_question` (
+  `question_id` int(11) NOT NULL AUTO_INCREMENT,
+  `position` int(11) DEFAULT NULL,
+  `question` text,
+  PRIMARY KEY (`question_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `web_scr_user_question`;
+CREATE TABLE  `web_scr_user_question` (
+  `user_question_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `question_id` int(11) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  `question` text,
+  `transaction_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_question_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1
+
+DROP TABLE IF EXISTS `web_scr_user_answer`;
+CREATE TABLE `web_scr_user_answer` (
+  `answer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `question_id` int(11) DEFAULT NULL,
+  `hint` text,
+  `answer` text,
+  `transaction_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`answer_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `web_enum_exception_type`;
+CREATE TABLE  `web_enum_exception_type` (
+  `exception_type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `exception_type_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`exception_type_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

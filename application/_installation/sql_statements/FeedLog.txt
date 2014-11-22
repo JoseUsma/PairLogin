@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS `web_fdl_feed`;
+CREATE TABLE  `web_fdl_feed` (
+  `feed_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `feed_type_id` int(11) DEFAULT NULL,
+  `type_feed_id` int(11) DEFAULT NULL,
+  `feed` text,
+  `transaction_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`message_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `web_enum_feed_type`;
+CREATE TABLE  `web_enum_feed_type` (
+  `feed_type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `feed_type_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`feed_type_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

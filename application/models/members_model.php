@@ -22,7 +22,7 @@ class MembersModel
      */
     public function getAllUsersProfiles()
     {
-        $sth = $this->db->prepare("SELECT user_id, user_name, user_email, user_active, user_has_avatar FROM users");
+        $sth = $this->db->prepare("SELECT user_id, user_name, user_email, user_active, user_has_avatar FROM web_usr_user_info");
         $sth->execute();
 
         $all_users_profiles = array();
@@ -56,7 +56,7 @@ class MembersModel
     public function getUserProfile($user_id)
     {
         $sql = "SELECT user_id, user_name, user_email, user_active, user_has_avatar
-                FROM users WHERE user_id = :user_id";
+                FROM web_usr_user_info WHERE user_id = :user_id";
         $sth = $this->db->prepare($sql);
         $sth->execute(array(':user_id' => $user_id));
 

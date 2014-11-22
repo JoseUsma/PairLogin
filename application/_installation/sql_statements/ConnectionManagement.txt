@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS `web_cnc_connection`;
+CREATE TABLE  `web_cnc_connection` (
+  `connection_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `connection_user_id` int(11) DEFAULT NULL,
+  `connection_type_id` int(11) DEFAULT NULL,
+  `connection_status_id` int(11) DEFAULT NULL,
+  `message` text,
+  `transaction_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`connection_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `web_enum_connection_type`;
+CREATE TABLE  `web_enum_message_type` (
+  `connection_type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `connection_type_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`connection_type_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
