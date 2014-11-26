@@ -21,7 +21,10 @@ class members extends Controller
     function index()
     {
         $members_model = $this->loadModel('members');
-        $this->view->users = $members_model->getAllUsersProfiles();
+		if (isset($_SESSION['ftn_user_permissions']['view_users']))
+			$this->view->users = $members_model->getAllUsersProfiles();
+		else
+			$_SESSION["feedback_negative"][] = FEEDBACK_ACCESS_DENIED;
         $this->view->render('members/index');
     }
 

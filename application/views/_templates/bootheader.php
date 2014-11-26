@@ -25,6 +25,15 @@
 <body>
 
     <div class="debug-helper-box">
+		<?php 
+		$URI = '';
+		if (isset($_GET['url'])) {
+			$URI = $_GET['url']; 
+		}
+		// Log request
+		$ApplicationLog = new ApplicationLog();
+		$ApplicationLog->history_log(1,$URI)
+		?>
         DEBUG HELPER: you are in the view: <?php echo $filename; ?>
     </div>
 

@@ -73,3 +73,4 @@ define("FEEDBACK_FACEBOOK_REGISTER_SUCCESSFUL", "You have been successfully regi
 define("FEEDBACK_FACEBOOK_OFFLINE", "We could not reach the Facebook servers. Maybe Facebook is offline (that really happens sometimes).");
 define("FEEDBACK_EMAIL_NOT_EXISTS", "Email is not registered in this system.");
 define("FEEDBACK_EMAIL_NOT_MATCH", "Email does not match our records.");
+define("FEEDBACK_ACCESS_DENIED", "Sorry you dont have access to this section");
