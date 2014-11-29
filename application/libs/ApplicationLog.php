@@ -7,6 +7,6 @@ class ApplicationLog extends Controller
     {
         // run the login() method in the login-model, put the result in $login_successful (true or false)
         $history_model = $this->loadModel('History');
-        $history_model->create($type,$description);
+        return $history_model->create($type,$description);
     }
 }

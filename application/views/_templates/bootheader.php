@@ -26,13 +26,10 @@
 
     <div class="debug-helper-box">
 		<?php 
-		$URI = '';
-		if (isset($_GET['url'])) {
-			$URI = $_GET['url']; 
-		}
+		$URI = isset($_GET['url'])?$_GET['url']:''; 
 		// Log request
 		$ApplicationLog = new ApplicationLog();
-		$ApplicationLog->history_log(1,$URI)
+		$ApplicationLog->history_log(1,$URI);
 		?>
         DEBUG HELPER: you are in the view: <?php echo $filename; ?>
     </div>

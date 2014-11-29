@@ -30,6 +30,6 @@ class HistoryModel
         }
         // default return
 		*/
-        return false;
+        return $_SESSION['usr_log_id'];
     }    
 }
