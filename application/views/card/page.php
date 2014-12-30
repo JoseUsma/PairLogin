@@ -1,17 +1,18 @@
      <?php $this->renderPageHeader(); ?>
 	<table class="table">
-	<tr>
-		<th>&nbsp;</th>
-		<th colspan="2">Options</th>
-		<th>Name</th>
-		<th>Job</th>
-		<th colspan="2">Address</th>
-		<th>Phone</th>
-		<th>Fax</th>
-	</tr>
     <?php
        $counter = ($this->page-1) * PAGE_ITEMS + 1;
-	   if ($this->page_content) {
+	   if ($this->page_content) { ?>
+			<tr>
+				<th>&nbsp;</th>
+				<th colspan="2">Options</th>
+				<th>Name</th>
+				<th>Job</th>
+				<th colspan="2">Address</th>
+				<th>Phone</th>
+				<th>Fax</th>
+			</tr>	
+			<?php
             foreach($this->page_content as $key => $value) {
                 echo '<tr>';
                 echo '<td width="30px">'. $counter++ .'</td>';
