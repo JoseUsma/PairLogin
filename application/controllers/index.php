@@ -22,7 +22,10 @@ class Index extends Controller
     {
         if (isset($_SESSION['user_logged_in'])){
 			$login_model = $this->loadModel('Login');
-			$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));
+			$this->view->account_type= $login_model->getUserAccountType(Session::get('user_account_type'));			
+			if (FACEBOOK_LOGIN == true) {
+				$this->view->facebook_login_url = $login_model->getFacebookLoginUrl();
+			}	
 		}
 		$this->view->render('index/index');			
     }

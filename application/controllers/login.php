@@ -45,9 +45,11 @@ class Login extends Controller
         // check login status
         if ($login_successful) {
             // if YES, then move user to dashboard/index (btw this is a browser-redirection, not a rendered view!)
-            header('location: ' . URL . 'dashboard/index');
+            $_SESSION['ftn_user_permissions']['view_users'] = true;
+			header('location: ' . URL . 'dashboard/index');			
         } else {
             // if NO, then move user to login/index (login form) again
+			unset($_SESSION['ftn_user_permissions']);
             header('location: ' . URL . 'login/index');
         }
     }

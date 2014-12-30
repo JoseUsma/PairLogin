@@ -94,20 +94,21 @@
             <li <?php if ($this->checkForActiveController($filename, "members")) { echo ' class="active" '; } ?> >
                 <a href="<?php echo URL; ?>members/index">Members</a>
             </li>
-            <li <?php if ($this->checkForActiveController($filename, "theme")) { echo ' class="active" '; } ?> >
-                <a href="<?php echo URL; ?>theme/index">Theme</a>
-            </li>
-            <?php if (Session::get('user_logged_in') == true):?>
+            <?php if (Session::get('user_logged_in') == true) { ?>
             <li <?php if ($this->checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
                 <a href="<?php echo URL; ?>dashboard/index">Dashboard</a>
             </li>
-            <?php endif; ?>
-            <?php if (Session::get('user_logged_in') == true):?>
+            <li <?php if ($this->checkForActiveController($filename, "cards")) { echo ' class="active" '; } ?> >
+                <a href="<?php echo URL; ?>card/index">Cards</a>
+            </li>
             <li <?php if ($this->checkForActiveController($filename, "note")) { echo ' class="active" '; } ?> >
                 <a href="<?php echo URL; ?>note/index">Notes</a>
             </li>
-            <?php endif; ?>
-
+            <?php } else { ?>			
+			<li <?php if ($this->checkForActiveController($filename, "theme")) { echo ' class="active" '; } ?> >
+                <a href="<?php echo URL; ?>theme/index">Theme</a>
+            </li>
+			<?php } ?>			
             <?php if (Session::get('user_logged_in') == true):?>
                 <li  <?php if ($this->checkForActiveController($filename, "login")) { echo ' class="active" '; } ?> >
                     <a href="<?php echo URL; ?>login/showprofile" class="dropdown-toggle" data-toggle="dropdown">My Account</a>

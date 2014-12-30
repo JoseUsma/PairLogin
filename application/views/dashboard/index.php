@@ -4,10 +4,8 @@
     <!-- echo out the system feedback (error and success messages) -->
     <?php $this->renderFeedbackMessages(); ?>
 
-    <h3>This is an area that's only visible for logged in users</h3>
+    <h3>This is an area you will have the latest news of our system!</h3>
 
-    Try to log out, an go to /dashboard/ again. You'll be redirected to /index/ as you are not logged in.
+    Come often to check our improvements!
     <br/><br/>
-    You can protect a whole section in your app within the according controller (here: controllers/dashboard.php)
-    by placing <span style='font-style: italic;'>Auth::handleLogin();</span> into the constructor.
 </div>

@@ -6,7 +6,7 @@
         <h1>Pair, business cards at all times and anywhere.</h1>
     </div>
     
-	<div class="jumbotron" style="float:left">
+	<div class="jumbotron" style="float:left" >
     
 	<?php if (Session::get('user_logged_in') == false):?>
       <p class="lead">Get your <b>business cards</b> for <b>free</b> </p>
@@ -71,85 +71,103 @@
 		</table>
 	</div>	
 	<?php } else { ?>
-    
-	   <div class="jumbotron" style="float:right">
-        <p class="lead">Register</p>
-        <!-- register form -->
-        <form method="post" action="<?php echo URL; ?>login/register_action" name="registerform"role="form" >
-                 <div class="form-group">
-					<label for="login_input_username">
-                Username
-                <span style="display: block; font-size: 11px; color: #999;">Only letters and numbers, 2 to 64 characters</span>
-            </label>
-            <input id="login_input_username" class="form-control" style="width:20px" type="text" pattern="[a-zA-Z0-9]{2,64}" name="user_name" required />
-            <!-- the email input field uses a HTML5 email type check -->
-			</div> 
-            <div class="form-group">
-				<label for="login_input_email">
-                User's email                
-            </label>
-            <input id="login_input_email" class="form-control" style="width:20px" type="email" name="user_email" required />
-            </div> 
-            <div class="form-group">
-			<label for="login_input_password_new">
-                Password 
-				<span style="display: block; font-size: 11px; color: #999;">min. 6 characters!</span>
-            </label>
-            <input id="login_input_password_new" class="form-control" style="width:20px" type="password" name="user_password_new" pattern=".{6,}" required autocomplete="off" />
-            </div> 
-            <div class="form-group">
-			<label for="login_input_password_repeat">Repeat password</label>
-            <input id="login_input_password_repeat" class="form-control" style="width:20px" type="password" name="user_password_repeat" pattern=".{6,}" required autocomplete="off" />
-            <!-- show the captcha by calling the login/showCaptcha-method in the src attribute of the img tag -->
-            <!-- to avoid weird with-slash-without-slash issues: simply always use the URL constant here -->
-            </div> 
-            <div class="form-group">
-			<label>
-                Please enter these characters
-            </label><br>
-            <img id="captcha" src="<?php echo URL; ?>login/showCaptcha" />
-            <span style="display: block; font-size: 11px; color: #999; margin-bottom: 10px">
-                <!-- quick & dirty captcha reloader -->
-                <a href="#" onclick="document.getElementById('captcha').src = '<?php echo URL; ?>login/showCaptcha?' + Math.random(); return false">[ Reload Captcha ]</a>
-            </span>
-            <input class="form-control" style="width:20px" type="text" name="captcha" required />
-            </div> 
-            <div class="form-group">
-			<input type="submit" class="btn btn-success btn-lg"  name="register" value="Register" />
- </div> 
-        </form>
-    </div>
-
-    <?php if (FACEBOOK_LOGIN == true) { ?>
-        <div class="register-facebook-box">
-            <h1>or</h1>
-            <a href="<?php echo $this->facebook_register_url; ?>" class="facebook-login-button">Register with Facebook</a>
-        </div>
-    <?php } ?>
-	
-		<div class="jumbotron" style="float:left">
-        <p class="lead">Welcome back</p>
-        <form action="<?php echo URL; ?>login/login" method="post" role="form" >
-                 <div class="form-group">
-					<label for="user_name">Username (or email)</label>
-					<input class="form-control" style="width:20px" type="text" name="user_name" id="user_name" required />
+	<div role="tabpanel"  style="float:right">
+		 <ul class="nav nav-tabs" role="tablist">
+			<li style="padding-left:10px" class="active" role="presentation"><a href="#login" aria-controls="home" role="tab" data-toggle="tab">Login</a></li>
+			<li role="presentation"><a href="#register" aria-controls="register" role="tab" data-toggle="tab">Register</a></li>
+		  </ul>
+		  <div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="login">
+			<?php /* if (FACEBOOK_LOGIN == true) { ?>
+				<div class="register-facebook-box">
+					<h1>or</h1>
+					<a href="<?php echo $this->facebook_register_url; ?>" class="facebook-login-button">Register with Facebook</a>
 				</div>
-                <div class="form-group">
-					<label for="user_password">Password</label>
-					<input class="form-control" style="width:20px" type="password" name="user_password" id="user_password" required />
-				</div>
-                <input type="submit" class="btn btn-primary btn-lg" value="Log in"/>
-        </form>
-        <a href="<?php echo URL; ?>login/requestpasswordreset">Reset Password</a>
-    </div>
+			<?php } */ ?>
+			
+				<div class="jumbotron" style="float:left">
+				<p class="lead">Welcome back</p>
+				<form action="<?php echo URL; ?>login/login" method="post" role="form" >
+						 <div class="form-group">
+							<label for="user_name">Username (or email)</label>
+							<input class="form-control" style="width:20px" type="text" name="user_name" id="user_name" required />
+						</div>
+						<div class="form-group">
+							<label for="user_password">Password</label>
+							<input class="form-control" style="width:20px" type="password" name="user_password" id="user_password" required />
+						</div>
+						<input type="submit" class="btn btn-primary btn-lg" value="Log in"/>
+				</form>
+				<a href="<?php echo URL; ?>login/requestpasswordreset">Reset Password</a>
+			</div>
 
-    <?php if (FACEBOOK_LOGIN == true) { ?>
-    <div class="login-facebook-box">
-        <h1>or</h1>
-        <a href="<?php echo $this->facebook_login_url; ?>" class="facebook-login-button">Log in with Facebook</a>
-    </div>
-    <?php } ?>
+			<?php if (FACEBOOK_LOGIN == true) { ?>
+			<div class="login-facebook-box">
+				<h1>or</h1>
+				<a href="<?php echo $this->facebook_login_url; ?>" class="facebook-login-button">Log in with Facebook</a>
+			</div>
+			<?php } ?>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="register">
+			<div class="jumbotron">
+				<p class="lead">Register</p>
+				<!-- register form -->
+				<form method="post" action="<?php echo URL; ?>login/register_action" name="registerform"role="form" >
+						 <div class="form-group">
+							<label for="login_input_username">
+						Username
+						<span style="display: block; font-size: 11px; color: #999;">Only letters and numbers, 2 to 64 characters</span>
+					</label>
+					<input id="login_input_username" class="form-control" style="width:20px" type="text" pattern="[a-zA-Z0-9]{2,64}" name="user_name" required />
+					<!-- the email input field uses a HTML5 email type check -->
+					</div> 
+					<div class="form-group">
+						<label for="login_input_email">
+						User's email                
+					</label>
+					<input id="login_input_email" class="form-control" style="width:20px" type="email" name="user_email" required />
+					</div> 
+					<div class="form-group">
+					<label for="login_input_password_new">
+						Password 
+						<span style="display: block; font-size: 11px; color: #999;">min. 6 characters!</span>
+					</label>
+					<input id="login_input_password_new" class="form-control" style="width:20px" type="password" name="user_password_new" pattern=".{6,}" required autocomplete="off" />
+					</div> 
+					<div class="form-group">
+					<label for="login_input_password_repeat">Repeat password</label>
+					<input id="login_input_password_repeat" class="form-control" style="width:20px" type="password" name="user_password_repeat" pattern=".{6,}" required autocomplete="off" />
+					<!-- show the captcha by calling the login/showCaptcha-method in the src attribute of the img tag -->
+					<!-- to avoid weird with-slash-without-slash issues: simply always use the URL constant here -->
+					</div> 
+					<div class="form-group">
+					<label>
+						Please enter these characters
+					</label><br>
+					<img id="captcha" src="<?php echo URL; ?>login/showCaptcha" />
+					<span style="display: block; font-size: 11px; color: #999; margin-bottom: 10px">
+						<!-- quick & dirty captcha reloader -->
+						<a href="#" onclick="document.getElementById('captcha').src = '<?php echo URL; ?>login/showCaptcha?' + Math.random(); return false">[ Reload Captcha ]</a>
+					</span>
+					<input class="form-control" style="width:20px" type="text" name="captcha" required />
+					</div> 
+					<div class="form-group">
+					<input type="submit" class="btn btn-success btn-lg"  name="register" value="Register" />
+				</div> 
+				</form>
+			</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="messages"><h2>Messages</h2></div>
+		  </div>
+		</div>
+
 	
 	 <?php } ?>
     
 </div>
+<script>
+$('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+</script>

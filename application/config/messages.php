@@ -74,3 +74,9 @@ define("FEEDBACK_FACEBOOK_OFFLINE", "We could not reach the Facebook servers. Ma
 define("FEEDBACK_EMAIL_NOT_EXISTS", "Email is not registered in this system.");
 define("FEEDBACK_EMAIL_NOT_MATCH", "Email does not match our records.");
 define("FEEDBACK_ACCESS_DENIED", "Sorry you dont have access to this section");
+define("FEEDBACK_CARD_CREATION_SUCCESS", "Card created.");
+define("FEEDBACK_CARD_EDITING_SUCCESS", "Card changed.");
+define("FEEDBACK_CARD_DELETION_SUCCESS", "Card deleted.");
+define("FEEDBACK_CARD_CREATION_FAILED", "Card creation failed.");
+define("FEEDBACK_CARD_EDITING_FAILED", "Card editing failed.");
+define("FEEDBACK_CARD_DELETION_FAILED", "Card deletion failed.");
