@@ -9,13 +9,13 @@
         <div class="form-group">
 			<label for="card_name" class="col-sm-2 control-label">Card Name:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="card_name" id="card_name"  placeholder="New card"  value="<?php echo htmlentities($this->card->card_name); ?>"/>
+				<input type="text" class="form-control" name="card_name" id="card_name"  placeholder="Card Name"  value="<?php echo htmlentities($this->card->card_name); ?>"/>
 			</div>	
         </div>
         <div class="form-group">
-			<label for="job_position" class="col-sm-2 control-label">Job Position:</label>
+			<label for="card_job_position" class="col-sm-2 control-label">Job Position:</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="job_position" id="job_position"  placeholder="Job" value="<?php echo htmlentities($this->card->card_job_position); ?>"/>
+				<input type="text" class="form-control" name="card_job_position" id="card_job_position"  placeholder="-" value="<?php echo htmlentities($this->card->card_job_position); ?>"/>
 			</div>	
         </div>
         <div class="form-group">

@@ -98,7 +98,7 @@ class CardModel
 						':card_address2' => $card_address2,
 						':card_phone' => $card_phone,
 						':card_fax' => $card_fax,
-						':card_job_position' => $card_job_postion,
+						':card_job_position' => $card_job_position,
 						':user_id' => $_SESSION['user_id']));
 
         $count =  $query->rowCount();
@@ -137,7 +137,7 @@ class CardModel
 		':card_address2' => $card_address2,
 		':card_phone' => $card_phone,
 		':card_fax' => $card_fax,
-		':card_job_position' => $card_job_postion,
+		':card_job_position' => $card_job_position,
 		':user_id' => $_SESSION['user_id']));
 
         $count =  $query->rowCount();

@@ -114,7 +114,7 @@ class Card extends Controller
         $card_model = $this->loadModel('Card');
         if (isset($_POST['card_name']) && !empty($_POST['card_name'])) {
             // perform the update: pass card_id from URL and card_text from POST
-            $editSuccess = $card_model->editSave($card_id, $_POST['card_name'],$_POST['card_address1'],$_POST['card_address2'],$_POST['card_phone'],$_POST['card_fax'],$_POST['card_job_postion']);
+            $editSuccess = $card_model->editSave($card_id, $_POST['card_name'],$_POST['card_address1'],$_POST['card_address2'],$_POST['card_phone'],$_POST['card_fax'],$_POST['card_job_position']);
         }else{
 			$_SESSION["feedback_negative"][] = FEEDBACK_CARD_EDITING_FAILED;
 		}
